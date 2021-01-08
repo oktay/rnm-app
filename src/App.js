@@ -8,6 +8,7 @@ import Pagination from "./components/pagination";
 import DetailModal from "./components/detail-modal";
 import Hero from "./components/hero";
 import Header from "./components/header";
+import Footer from "./components/footer";
 
 function App() {
   const [query, setQuery] = useState(
@@ -102,6 +103,7 @@ function App() {
           </>
         )}
       </Container>
+      <Footer />
     </>
   );
 }
