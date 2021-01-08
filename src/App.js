@@ -1,5 +1,5 @@
 import fetch from "isomorphic-fetch";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Container, Grid, Text, useDisclosure } from "@chakra-ui/react";
 import Skeletons from "./components/skeletons";
 import Card from "./components/card";
@@ -17,7 +17,8 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [detail, setDetail] = useState(null);
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const content = useRef();
 
   function fetcher(url) {
     setLoading(true);
@@ -40,13 +41,20 @@ function App() {
 
   useEffect(() => {
     fetcher(query);
+    content.current.scrollIntoView();
   }, [query]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      window.scrollTo({ top: 0 });
+    }, 1);
+  }, []);
 
   return (
     <>
       <Header />
       <Hero />
-      <Container maxWidth="960px" paddingY="64px" mt="-120px">
+      <Container maxWidth="960px" paddingY="64px" mt="-120px" ref={content}>
         <Searchbox setQuery={setQuery} />
         <Grid
           templateColumns={[
@@ -71,14 +79,26 @@ function App() {
             <Skeletons />
           ) : (
             pageData?.results?.map((char) => (
-              <Card key={char.id} char={char} setDetail={setDetail} onOpen={onOpen} />
+              <Card
+                key={char.id}
+                char={char}
+                setDetail={setDetail}
+                onOpen={onOpen}
+              />
             ))
           )}
         </Grid>
         {!loading && !error && (
           <>
             <Pagination info={pageData.info} setQuery={setQuery} />
-            { detail && <DetailModal detail={detail} isOpen={isOpen} onOpen={onOpen} onCLose={onClose} />}
+            {detail && (
+              <DetailModal
+                detail={detail}
+                isOpen={isOpen}
+                onOpen={onOpen}
+                onCLose={onClose}
+              />
+            )}
           </>
         )}
       </Container>

@@ -27,9 +27,8 @@ function Hero() {
       src={src}
       filter={blur ? "blur(20px)" : "none"}
       transition={blur ? "none" : "filter 0.3s ease-out"}
-      width="100%"
-      minHeight="300px"
-      maxHeight="500px"
+      width="full"
+      height="55vh"
       objectFit="cover"
       objectPosition="top"
       position="relative"
