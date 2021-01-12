@@ -5,7 +5,7 @@ function Skeletons({...props}) {
   return arr.map((item, index) => (
     <Stack spacing="4" padding="5" key={index} boxShadow="xl" minHeight="280px" borderRadius="7px" {...props}>
       <Box mt="6" mb="auto" textAlign="center">
-        <Avatar />
+        <Avatar boxSize="125px" />
         <SkeletonText mt="4" textAlign="center" noOfLines={3} />
       </Box>
       <Button mt="auto" colorScheme="gray" isLoading={true}></Button>

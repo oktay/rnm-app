@@ -12,7 +12,7 @@ function Header() {
       shadow="xl"
     >
       <Container maxWidth="960px" py="4">
-        <Text fontSize="xl" fontWeight="semibold">
+        <Text fontSize="xl" fontWeight="medium">
           <Link
             href="/"
             display="flex"

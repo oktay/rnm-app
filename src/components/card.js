@@ -12,8 +12,8 @@ function Card({ char, setDetail, onOpen, ...props }) {
       {...props}
     >
       <Box mt="6" textAlign="center">
-        <Avatar src={char.image} status={char.status} />
-        <Heading as="h4" fontWeight="semibold" fontSize="md" mt="4">
+        <Avatar src={char.image} status={char.status} boxSize="125px" fontSize="40px" />
+        <Heading as="h4" fontWeight="medium" fontSize="md" mt="4">
           {char.name}
         </Heading>
       </Box>

@@ -55,7 +55,7 @@ function App() {
     <>
       <Header />
       <Hero />
-      <Container maxWidth="960px" paddingY="64px" mt="-120px" ref={content}>
+      <Container maxWidth="1140px" paddingY="64px" mt="-120px" ref={content}>
         <Searchbox setQuery={setQuery} />
         <Grid
           templateColumns={[
@@ -70,7 +70,7 @@ function App() {
             <Text
               fontSize="4xl"
               textAlign="center"
-              fontWeight="semibold"
+              fontWeight="medium"
               color="gray.500"
               gridColumn={["", "span 2", "span 2", "span 4"]}
             >
