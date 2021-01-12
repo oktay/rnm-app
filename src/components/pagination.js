@@ -1,5 +1,17 @@
-import { ArrowBackIcon, ArrowForwardIcon } from "@chakra-ui/icons";
-import { Stack, Button, Flex, Text } from "@chakra-ui/react";
+import {
+  ArrowBackIcon,
+  ArrowForwardIcon,
+  ChevronDownIcon,
+} from "@chakra-ui/icons";
+import {
+  Stack,
+  Button,
+  Flex,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItemOption,
+} from "@chakra-ui/react";
 
 function Pagination({ info, setQuery }) {
   const currentPage = info.next
@@ -20,9 +32,42 @@ function Pagination({ info, setQuery }) {
         >
           Prev
         </Button>
-        <Text color="gray.500">
-          {currentPage} / {info.pages}
-        </Text>
+
+        <Menu fixed margin="0">
+          <MenuButton
+            colorScheme="gray"
+            color="gray.500"
+            as={Button}
+            rightIcon={<ChevronDownIcon />}
+          >
+            {currentPage} / {info.pages}
+          </MenuButton>
+          <MenuList maxHeight="250px" minWidth="auto" overflowY="scroll">
+            {[...Array(info.pages)].map((el, index) => (
+              <MenuItemOption
+                fontWeight={currentPage === index + 1 && "bold"}
+                key={index}
+                isChecked={currentPage === index + 1}
+                onClick={() =>
+                  setQuery(
+                    info.next
+                      ? info.next.replace(
+                          `?page=${currentPage + 1}`,
+                          `?page=${index + 1}`
+                        )
+                      : info.prev.replace(
+                          `?page=${currentPage - 1}`,
+                          `?page=${index + 1}`
+                        )
+                  )
+                }
+              >
+                {index + 1}
+              </MenuItemOption>
+            ))}
+          </MenuList>
+        </Menu>
+
         <Button
           colorScheme="gray"
           rightIcon={<ArrowForwardIcon />}

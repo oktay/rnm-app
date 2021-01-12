@@ -24,7 +24,7 @@ function Header() {
       width="full"
       bg="white"
       zIndex="9"
-      shadow="xl"
+      shadow="sm"
     >
       <Container
         maxWidth="1140px"
@@ -42,20 +42,21 @@ function Header() {
             _hover={{ textDecoration: "none" }}
           >
             <Image src="./logo.png" boxSize="64px" />
-            <Box ml="5">
-              <Text lineHeight="1">Rick and Morty</Text>
-              <Text lineHeight="1" color="gray.500">
+            <Stack as="span" ml="5" spacing="0">
+              <Text as="span" lineHeight="1">Rick and Morty</Text>
+              <Text as="span" lineHeight="1" color="gray.500">
                 Characters
               </Text>
-            </Box>
+            </Stack>
           </Link>
         </Text>
         <Stack as="nav" direction="row" spacing="4" display={{base: 'none', md: 'flex'}}>
-          <Link href="/" _hover={{ textDecoration: "none", opacity: "0.8" }}>
+          <Link href="/" fontWeight="500" _hover={{ textDecoration: "none", opacity: "0.8" }}>
             Home
           </Link>
           {externals.map((ext) => (
             <Link
+              key={ext.url}
               href={ext.url}
               color="gray.500"
               target="_blank"
