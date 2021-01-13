@@ -1,5 +1,5 @@
 import { Box, InputGroup, Input, InputLeftElement } from "@chakra-ui/react";
-import { SearchIcon } from "@chakra-ui/icons"
+import { SearchIcon } from "@chakra-ui/icons";
 import { useState } from "react";
 
 function Searchbox({ setQuery, ...props }) {
@@ -11,9 +11,20 @@ function Searchbox({ setQuery, ...props }) {
   }
 
   return (
-    <Box padding="8" bg="white" borderRadius="7px" boxShadow="xl" mb="12" {...props}>
+    <Box
+      padding="8"
+      bg="white"
+      borderRadius="7px"
+      boxShadow="xl"
+      mb="12"
+      {...props}
+    >
       <InputGroup>
-        <Input value={value} onChange={({ target }) => handleChange(target)} placeholder="Evil Morty..."  />
+        <Input
+          value={value}
+          onChange={({ target }) => handleChange(target)}
+          placeholder="Evil Morty..."
+        />
         <InputLeftElement>
           <SearchIcon color="gray.500" />
         </InputLeftElement>

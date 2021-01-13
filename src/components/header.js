@@ -30,7 +30,7 @@ function Header() {
         maxWidth="1140px"
         py="4"
         display="flex"
-        justifyContent={{base: 'center', md: 'space-between'}}
+        justifyContent={{ base: "center", md: "space-between" }}
         alignItems="center"
       >
         <Text fontSize="xl" fontWeight="medium">
@@ -43,15 +43,26 @@ function Header() {
           >
             <Image src="./logo.png" boxSize="64px" />
             <Stack as="span" ml="5" spacing="0">
-              <Text as="span" lineHeight="1">Rick and Morty</Text>
+              <Text as="span" lineHeight="1">
+                Rick and Morty
+              </Text>
               <Text as="span" lineHeight="1" color="gray.500">
                 Characters
               </Text>
             </Stack>
           </Link>
         </Text>
-        <Stack as="nav" direction="row" spacing="4" display={{base: 'none', md: 'flex'}}>
-          <Link href="/" fontWeight="500" _hover={{ textDecoration: "none", opacity: "0.8" }}>
+        <Stack
+          as="nav"
+          direction="row"
+          spacing="4"
+          display={{ base: "none", md: "flex" }}
+        >
+          <Link
+            href="/"
+            fontWeight="500"
+            _hover={{ textDecoration: "none", opacity: "0.8" }}
+          >
             Home
           </Link>
           {externals.map((ext) => (

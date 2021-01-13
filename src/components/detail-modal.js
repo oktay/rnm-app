@@ -21,16 +21,44 @@ function DetailModal({ detail, isOpen, onCLose }) {
       <ModalContent maxWidth="675px">
         <ModalHeader fontWeight="medium">Detail</ModalHeader>
         <ModalCloseButton />
-        <ModalBody display="flex" alignItems="center" justifyContent="center" padding={{base: '4', md: '12'}} flexDir={{base: 'column', lg: 'row'}}>
-          <Avatar src={detail.image} status={detail.status} boxSize={{base: '128px', lg: '250px'}} fontSize={{base: '32px', lg: '80px'}} />
-          <Box ml={{lg: '12'}} mt={{ base: '8', lg: '0' }} maxWidth={{ base: '100%', lg: '60%' }} textAlign={{base: 'center', lg: 'left'}}>
-            <Heading as="h2" fontWeight="medium">{detail.name}</Heading>
-            <Grid templateColumns="auto 1fr" columnGap="4" mt={{ base: '4', lg: '8' }} textAlign="left">
-              <Text fontWeight="medium">Status:</Text> <Text>{detail.status}</Text>
-              <Text fontWeight="medium">Species:</Text> <Text>{detail.species}</Text>
-              <Text fontWeight="medium">Gender:</Text> <Text>{detail.gender}</Text>
-              <Text fontWeight="medium">Location:</Text> <Text>{detail.location.name}</Text>
-              <Text fontWeight="medium">Origin:</Text> <Text>{detail.origin.name}</Text>
+        <ModalBody
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          padding={{ base: "4", md: "12" }}
+          flexDir={{ base: "column", xl: "row" }}
+        >
+          <Avatar
+            src={detail.image}
+            status={detail.status}
+            boxSize={{ base: "128px", xl: "250px" }}
+            fontSize={{ base: "32px", xl: "80px" }}
+          />
+          <Box
+            ml={{ xl: "12" }}
+            mt={{ base: "8", xl: "0" }}
+            maxWidth={{ base: "100%", xl: "60%" }}
+            textAlign={{ base: "center", xl: "left" }}
+          >
+            <Heading as="h2" fontWeight="medium">
+              {detail.name}
+            </Heading>
+            <Grid
+              templateColumns="auto 1fr"
+              columnGap="4"
+              mt={{ base: "4", xl: "8" }}
+              textAlign="left"
+            >
+              <Text fontWeight="medium">Status:</Text>{" "}
+              <Text>{detail.status}</Text>
+              <Text fontWeight="medium">Species:</Text>{" "}
+              <Text>{detail.species}</Text>
+              <Text fontWeight="medium">Gender:</Text>{" "}
+              <Text>{detail.gender}</Text>
+              <Text fontWeight="medium">Location:</Text>{" "}
+              <Text>{detail.location.name}</Text>
+              <Text fontWeight="medium">Origin:</Text>{" "}
+              <Text>{detail.origin.name}</Text>
             </Grid>
           </Box>
         </ModalBody>

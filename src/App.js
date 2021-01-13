@@ -58,12 +58,11 @@ function App() {
       <Container maxWidth="1140px" paddingY="64px" mt="-120px" ref={content}>
         <Searchbox setQuery={setQuery} />
         <Grid
-          templateColumns={[
-            "1fr",
-            "repeat(2, 1fr)",
-            "repeat(2, 1fr)",
-            "repeat(4, 1fr)",
-          ]}
+          templateColumns={{
+            base: "1fr",
+            md: "repeat(2, 1fr)",
+            xl: "repeat(4, 1fr)",
+          }}
           gap="32px"
         >
           {error ? (
@@ -72,7 +71,7 @@ function App() {
               textAlign="center"
               fontWeight="medium"
               color="gray.500"
-              gridColumn={["", "span 2", "span 2", "span 4"]}
+              gridColumn={{ md: "span 2", xl: "span 4" }}
             >
               {error}
             </Text>
